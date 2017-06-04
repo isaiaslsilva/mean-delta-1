@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var localizacaoRoute = require('./routes/localizacao.route');
 var app = express();
 
 // view engine setup
@@ -27,7 +28,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-let localizacaoRoute = require('./routes/localizacao.route');
+//let localizacaoRoute = require('./routes/localizacao.route');
 
 app.use('/api/localizacao', localizacaoRoute);
 
@@ -49,8 +50,8 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    res.status(err.status || 500).json(error);
+
 });
 
 module.exports = app;

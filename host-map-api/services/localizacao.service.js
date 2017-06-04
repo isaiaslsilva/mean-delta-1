@@ -44,11 +44,15 @@ function consultar() {
     return new Promise((resolve, reject) => {
         let criteria = {};
 
-        Localizacao.find(criteria, (err, docs) => {
-            if (err) return reject(err);
-
-            resolve(docs);
-        });
+        Localizacao
+            .find({})
+            .sort({dataHora: 'desc'})
+            .exec((err, doc) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(doc);
+            });
     });
 }
 

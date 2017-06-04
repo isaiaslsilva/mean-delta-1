@@ -22,7 +22,7 @@
             <span>Ações:</span>
         </div>
     </div>
-    <div class="row" *ngFor="let loc of historico;">
+    <div class="row" *ngFor="let loc of historico">
         <div class="col-md-2">
             <span>{{loc.dominio}}</span>
         </div>
@@ -43,6 +43,7 @@
         </div>
         <div class="col-md-2">
             <button type="button" class="btn btn-primary">Consultar</button>
+            <button type="button" class="btn btn-danger" (click)="excluir(loc)">Excluir</button>
         </div>
     </div>
 </div>

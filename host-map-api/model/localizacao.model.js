@@ -8,7 +8,7 @@ let Localizacao = Schema({
     query: String,
     country: String,
     dominio: { type: String, max: 50 },
-    dataHora: { type: Date, default: Date.now }
+    dataHora: { type: Date, default: Date.now() }
 });
 
 module.exports = mongoose.model('Localizacao', Localizacao);
